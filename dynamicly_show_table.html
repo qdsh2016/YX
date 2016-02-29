@@ -1,0 +1,28 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<title>search</title>
+</head>
+<body>
+<hr color="cornflowerblue"/>
+<table id="oop" border="1" cellspacing="0" color="cornflowerblue"  width="800" height="50"	>
+
+</table>
+</body>
+<script >	
+	function ok(str){
+		document.getElementById("oop").innerHTML=str;
+	}
+	var total=5;
+	var str0="<tr><td width='100'>X</td><td width='100'>X</td><td width='100'>X</td><td width='100'>X</td><td width='100'>X</td><td width='100'>X</td></tr>";	
+	var i=1;
+	str="";
+	while(i<total){
+		str=str+str0;
+  		i++;
+	}
+	ok(str);
+</script>
+</html>
+
+ 	
