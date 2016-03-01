@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import mysql
+
 # Create your views here.
 '''
 the essence of develop software :
@@ -41,5 +42,17 @@ def signin_ok(request):
 	elif len(res)==0:
 		mysql.mysql('signin2',id,'test',passwd)
 		return render(request,'signin_ok.html',{'id':id,'passwd':passwd})
-	
 
+def search(request):
+	pass
+	res=mysql.mysql('search')
+	total=len(res)
+	
+	return render(request,'search.html',{ 'res':res,'total':total})
+	
+def student(request):
+	id_=int(request.GET['id'])
+	res=mysql.mysql('student',id_)
+	print('-------------------------')
+	print(res)
+	return render(request,'student.html',{'res':res })

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>search</title>
+	</head>
+
+	<body>
+	<hr color="cornflowerblue"/>
+		筛选：<br />
+		<input type="text" name="" id="" value="" /> <br />
+		<input type="text" name="" id="" value="" /> <br />
+		<input type="checkbox" name="" id="" value="" /> <br />
+		
+	<hr color="cornflowerblue"/>
+	<h1>Search Result:</h1>
+	 <table border="1" cellspacing="0"  width="800" height="30">
+	 	<tr >
+	 		<td width="100"> No.</td>
+	 		<td width="100"> id</td>
+	 		<td width="100"> name</td>
+	 		<td width="100"> show</td>
+	 		<td width="100"> add</td>
+	 		<td width="100"> update</td>
+	 		<td width="100"> delete</td>
+	 		<td width="100"> score</td>
+	 	</tr>
+	 </table>
+	 <br />
+	 <table border="1" cellspacing="0"  width="800" height="40" id="oop">
+	 </table>
+<hr color="cornflowerblue"/>
+	</body>
+
+
+<script >	
+	function ok(str){
+		document.getElementById("oop").innerHTML=str;
+	};
+	function show(qw){
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		console.log(qw.id);
+	};
+	function add(qw){
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+	};
+	function update(qw){
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		console.log(qw.id);
+	};
+	function delete_(qw){
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		console.log(qw.id);
+	};
+	function score(qw){
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		console.log(qw.id);
+	}
+	var total={{total}};  // " "
+	var str00="<tr><td width='100'>"; //No
+	var str01="</td><td width='100'>"; //id
+	var str02="</td><td width='100'>"; //name
+	var str03="</td><td width='100'><button onclick='show(this)' "; 
+	var str05=">show</button></td><td width='100'><button onclick='add()'>add</button></td><td width='100'><button onclick='update(this)' " ;
+	var str06=">update</button></td><td width='100'><button onclick='delete_(this)' " ;
+	var str07=">delete</button></td><td width='100'><button onclick='score(this)' " ;
+	var str08=">score</button></td></tr><br />";
+	qq='{{res}}';
+	qq=qq.replace(/&#39;/g,"'");
+	qq=qq.replace(/\(/g,"[")
+	qq=qq.replace(/\)/g,"]")
+	qq=eval(qq) 
+	console.log(qq);
+	var i=0;
+	str="";
+	while(i<total){
+		var str04="id='" +qq[i][0]+ "'";		
+		str=str+str00+ (i+1) +str01+ qq[i][0] +str02+ qq[i][1] +str03+str04+str05+str04+str06+str04+str07+str04+str08;
+  		i++;
+	}
+	ok(str);
+</script>
+</html>

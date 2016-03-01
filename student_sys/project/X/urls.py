@@ -24,4 +24,7 @@ urlpatterns = [
 	url(r'signin', views.signin,name='signin'),	
     url(r'ok_insign', views.signin_ok,name='signin_ok'),
 
+    url(r'search', views.search,name='search'),    
+    url(r'student', views.student,name='student'),    
+
 ]

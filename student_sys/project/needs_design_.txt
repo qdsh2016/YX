@@ -13,7 +13,11 @@
 省 市 县 3张表 ==>> address
 
 学生信息可添加编辑
+
 id name  sex birth photo  address=省 市 县 + 自己输入的具体街道地址
+
+
+
 
 查询结果 分页
 
@@ -23,9 +27,9 @@ id 由系统生成
 
 查看 学生 某课程成绩
 
-chinese math english
+chinese math english ..
 
-展示出 一门课 学生的及格率   饼状图
+//展示出 一门课 学生的及格率   饼状图
 
 导出 功能
 

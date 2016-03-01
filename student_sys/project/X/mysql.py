@@ -17,6 +17,13 @@ def mysql(*args):
 
 	if args[0]=='login':  
 		procedure_= "(%d,'%s')" % (args[1],args[2],) 		
+
+	if args[0]=='search':  #get all student id , name
+		procedure_= "()" 
+
+	if args[0]=='student': 
+		procedure_= "(%d)" % (args[1],)
+
 		
 	procedure="call " + args[0] + procedure_
 	cur.execute(procedure)
