@@ -52,7 +52,16 @@ def search(request):
 	
 def student(request):
 	id_=int(request.GET['id'])
-	res=mysql.mysql('student',id_)
-	print('-------------------------')
+	try:
+		flag=request.GET['flag']
+	except:
+		flag=''
+	res=mysql.mysql('student',id_)	
 	print(res)
-	return render(request,'student.html',{'res':res })
+	return render(request,'student.html',{'res':res,'flag':flag})
+
+def score(request):
+	pass
+	id=int(request.GET['id'])
+	res=mysql.mysql('',id)
+	return render(request,'score.html',{'res':res })

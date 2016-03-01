@@ -38,14 +38,14 @@
 		document.getElementById("oop").innerHTML=str;
 	};
 	function show(qw){
-		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id+"&flag='show'";
 		console.log(qw.id);
 	};
 	function add(qw){
-		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id+"&flag='add'";
 	};
 	function update(qw){
-		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		window.location.href="http://localhost:8000/student"+'?id='+qw.id+"&flag='update'";
 		console.log(qw.id);
 	};
 	function delete_(qw){
@@ -53,7 +53,7 @@
 		console.log(qw.id);
 	};
 	function score(qw){
-		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
+		window.location.href="http://localhost:8000/score"+'?id='+qw.id;
 		console.log(qw.id);
 	}
 	var total={{total}};  // " "
