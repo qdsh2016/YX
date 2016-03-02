@@ -24,6 +24,8 @@ def mysql(*args):
 	if args[0]=='student': 
 		procedure_= "(%d)" % (args[1],)
 
+	if args[0]=='score': 
+		procedure_= "(%d)" % (args[1],)
 		
 	procedure="call " + args[0] + procedure_
 	cur.execute(procedure)

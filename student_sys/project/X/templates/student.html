@@ -22,18 +22,19 @@
 		document.getElementById('sex').value='{{ res.0.3}}';
 		document.getElementById('address').value='{{ res.0.4}}';		
 	}
-	function ok(flag){
-	if (flag=='show') {
-		show();
-	}else if(flag=='update') {
-		show();
-	}else if(flag=='add') {
-		
+	function ok(flag) {
+		if (flag=='show'){
+			show(); }
+		else if(flag=='update'){
+			show(); }
+		else if(flag=='add'){}
 	}
-}
-	ok({{ flag }});
-	// show();
-
+	
+	flag='{{ flag }}';
+	flag=flag.replace(/&#39;/g,'');
+	console.log(flag);
+	ok(flag);
+	
 </script>
 
 </html>

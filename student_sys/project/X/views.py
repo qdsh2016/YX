@@ -51,17 +51,17 @@ def search(request):
 	return render(request,'search.html',{ 'res':res,'total':total})
 	
 def student(request):
-	id_=int(request.GET['id'])
+	id=int(request.GET['id'])
 	try:
 		flag=request.GET['flag']
 	except:
 		flag=''
-	res=mysql.mysql('student',id_)	
-	print(res)
+	res=mysql.mysql('student',id)		
 	return render(request,'student.html',{'res':res,'flag':flag})
 
 def score(request):
 	pass
 	id=int(request.GET['id'])
-	res=mysql.mysql('',id)
+	res=mysql.mysql('score',id)
+	print(res)
 	return render(request,'score.html',{'res':res })

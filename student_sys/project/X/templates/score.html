@@ -1,0 +1,34 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>score</title>
+	</head>
+	<body>
+		<label>id</label>&nbsp;&nbsp;&nbsp;<input type="text" name="" id="id" value="" /> <br />
+		<label>name</label>&nbsp;&nbsp;<input type="text" name="" id="name" value="" /> <br />			
+		<label>math</label>&nbsp;<input type="text" name="" id="math" value="" /> <br />	
+		<label>english</label>&nbsp;<input type="text" name="" id="english" value="" /> <br />	
+		<label>physics</label>&nbsp;<input type="text" name="" id="physics" value="" /> <br />	
+		<label>chinese</label>&nbsp;<input type="text" name="" id="chinese" value="" /> <br />	
+		<label>history</label>&nbsp;<input type="text" name="" id="history" value="" /> <br />	
+		<button>xx</button>&nbsp;&nbsp;<button>xx</button>
+	
+	</body>
+
+<script>
+	function show(){
+		document.getElementById('id').value='{{res.0.0}}';
+		document.getElementById('name').value='{{ res.0.1}}';
+		document.getElementById('math').value='{{res.0.2 }}';
+		document.getElementById('english').value='{{ res.0.3}}';
+		document.getElementById('physics').value='{{ res.0.4}}';		
+		document.getElementById('chinese').value='{{ res.0.5}}';		
+		document.getElementById('history').value='{{ res.0.6}}';				
+	}
+
+	show();
+
+</script>
+
+</html>
