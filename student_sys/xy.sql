@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-03-01 17:16:24
+Date: 2016-03-02 11:29:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,9 @@ CREATE TABLE `score` (
 INSERT INTO `score` VALUES ('1', '89', '89', '98', '56', '99');
 INSERT INTO `score` VALUES ('2', '54', '23', '54', '32', '87');
 INSERT INTO `score` VALUES ('3', '43', '56', '34', '54', '12');
-INSERT INTO `score` VALUES (null, '40', '90', '78', '98', '86');
+INSERT INTO `score` VALUES ('4', '40', '90', '78', '98', '86');
+INSERT INTO `score` VALUES ('5', '45', '54', '78', '78', '43');
+INSERT INTO `score` VALUES ('6', '45', '43', '76', '90', '69');
 
 -- ----------------------------
 -- Table structure for student
@@ -57,7 +59,17 @@ INSERT INTO `student` VALUES ('2', 'er', '215', '1', 're');
 INSERT INTO `student` VALUES ('3', 'rt', '253', '1', 'rrt');
 INSERT INTO `student` VALUES ('4', 'rty', '568', '0', 'cssf');
 INSERT INTO `student` VALUES ('5', 'th', '585', '0', 'hyj');
-INSERT INTO `student` VALUES ('6', 'lnn', '5665', '1', 'cdg');
+INSERT INTO `student` VALUES ('6', '56', '65', '56', 'fgg');
+
+-- ----------------------------
+-- Procedure structure for delete_
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `delete_`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_`(IN id_ INT)
+delete from student where id=id_
+;;
+DELIMITER ;
 
 -- ----------------------------
 -- Procedure structure for login
@@ -66,6 +78,16 @@ DROP PROCEDURE IF EXISTS `login`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(IN id_ int,IN passwd_ VARCHAR(255))
 select id FROM student where id=id_ and passwd=passwd_
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for score
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `score`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `score`(IN id_ INT)
+SELECT score.id,student.name,math,english,phyics,chinese,history from score,student where score.id=student.id and score.id=id_
 ;;
 DELIMITER ;
 
@@ -106,19 +128,5 @@ DROP PROCEDURE IF EXISTS `student`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `student`(IN id_ INT)
 SELECT * FROM student WHERE id=id_
-;;
-DELIMITER ;
-
--- ----------------------------
--- Procedure structure for xx
--- ----------------------------
-DROP PROCEDURE IF EXISTS `xx`;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `xx`(IN id_ int)
-IF id_ in(21 )  THEN
-		SELECT 0;
-  ELSE
-		SELECT 1;
-	END IF
 ;;
 DELIMITER ;
