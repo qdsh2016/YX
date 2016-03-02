@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'search', views.search,name='search'),    
     url(r'student', views.student,name='student'),    
     url(r'score', views.score,name='score'),    
-
+    url(r'delete', views.delete,name='delete'),  
+    url(r'addORupdate', views.addORupdate,name='addORupdate'),  
+      
 ]
