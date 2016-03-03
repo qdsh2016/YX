@@ -39,22 +39,21 @@
 	};
 	function show(qw){
 		window.location.href="http://localhost:8000/student"+'?id='+qw.id+"&flag='show'";
-		console.log(qw.id);
 	};
 	function add(){
-		window.location.href="http://localhost:8000/student"+'?id=0'+"&flag='add'";
+		window.location.href="http://localhost:8000/student"+'?id=0'+"&flag='add'"; //addORupdate
 	};
-	function update(qw){
+	function update(qw){                                                            //addORupdate
 		window.location.href="http://localhost:8000/student"+'?id='+qw.id+"&flag='update'";
-		console.log(qw.id);
 	};
 	function delete_(qw){
-		window.location.href="http://localhost:8000/student"+'?id='+qw.id;
-		console.log(qw.id);
+		window.location.href="http://localhost:8000/delete"+'?id='+qw.id;		
 	};
 	function score(qw){
-		window.location.href="http://localhost:8000/score"+'?id='+qw.id;
-		console.log(qw.id);
+		window.location.href="http://localhost:8000/score"+'?id='+qw.id;		
+	}
+	function deleteok(){
+		alert(' delete ok.. ');
 	}
 	var total={{total}};  // " "
 	var str00="<tr><td width='100'>"; //No
@@ -80,5 +79,6 @@
   		i++;
 	}
 	ok(str);
+	{{ delete_flag}}  //deleteok()
 </script>
 </html>
