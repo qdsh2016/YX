@@ -30,7 +30,15 @@ def mysql(*args):
 	if args[0]=='delete_': 
 		procedure_= "(%d)" % (args[1],)
 
-		
+	if args[0]=='id_check': 
+		procedure_= "()" 		
+
+	if args[0]=='insert_':  # id , name, sex, passwd, address
+		procedure_= "(%d,'%s',%d,'%s','%s')" % (args[1],args[2],args[3],args[4],args[5],)		
+
+	if args[0]=='update_': 
+		procedure_= "(%d,'%s',%d,'%s','%s')" % (args[1],args[2],args[3],args[4],args[5],)
+
 	procedure="call " + args[0] + procedure_
 	cur.execute(procedure)
 

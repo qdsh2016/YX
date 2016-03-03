@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>student</title>
+	</head>
+	<body>		
+	<hr color="cornflowerblue"/>
+<a href="http://localhost:8000/search" color="cornflowerblue">Back</a>
+<hr color="cornflowerblue"/>
+		<label>id</label>&nbsp;&nbsp;&nbsp;<input type="text" name="" id="id" value="" />&nbsp;<button onclick="sid()">生成id</button><br/>
+
+		<label>name</label>&nbsp;&nbsp;<input type="text" name="" id="name" value="" /> <br />
+		<label>sex</label>&nbsp;&#32;&#32;&nbsp;<input type="text" name="" id="sex" value="" /> <br/>
+		<label>passwd</label>&nbsp;<input type="text" name="" id="passwd" value="" /> <br />
+		<label>address</label>&#32;&#32;<input type="text" name="" id="address" value="" /> <br /><br />
+		<button onclick="lnn_add()">add</button>
+	
+	</body>
+<hr color="cornflowerblue"/>
+<script>
+function lnn_add(){
+	id=document.getElementById('id').value;
+	name=document.getElementById('name').value;
+	sex=document.getElementById('sex').value;
+	passwd=document.getElementById('passwd').value;
+	address=document.getElementById('address').value;
+	console.log(id,name,sex,passwd,address);
+
+	window.location.href="http://localhost:8000/yyy?"+'id='+id+'&name='+name+'&sex='+sex+'&passwd='+passwd+'&address='+address;
+}
+function sid(){
+	flag=Math.floor(Math.random()*(10));  // id
+	if (flag<=3){id=Math.floor(Math.random()*(100));}
+	else if (3<flag<=6) {id=Math.floor(Math.random()*(1000));}
+	else if (6<flag<=10) {id=Math.floor(Math.random()*(10000));}
+	else {id=Math.floor(Math.random()*(10));}
+	window.location.href="http://localhost:8000/id_check?id="+id;
+}
+var id={{id}};
+var id_check='{{id_check}}';
+if(id_check=='ok'){document.getElementById('id').value=id;};
+
+
+</script>
+
+</html>

@@ -1,23 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>student</title>
+		<title>update</title>
 	</head>
 	<body>
 	<hr color="cornflowerblue"/>
 <a href="http://localhost:8000/search" color="cornflowerblue">Back</a>
 <hr color="cornflowerblue"/>
-		<label>id</label>&nbsp;&nbsp;&nbsp;<input type="text" name="" id="id" value="" /> <br />
+		<label>id</label>&nbsp;&nbsp;&nbsp;<input type="text" name="" id="id" value="" readonly="readonly"/><label>&nbsp;(can not change id)</label> <br />
+
 		<label>name</label>&nbsp;&nbsp;<input type="text" name="" id="name" value="" /> <br />
 		<label>sex</label>&nbsp;&#32;&#32;&nbsp;<input type="text" name="" id="sex" value="" /> <br/>
 		<label>passwd</label>&nbsp;<input type="text" name="" id="passwd" value="" /> <br />
-		<label>address</label>&#32;&#32;<input type="text" name="" id="address" value="" /> <br /><br />	
-		<button>update</button>&nbsp;&nbsp;<button>add</button>
-	
+		<label>address</label>&#32;&#32;<input type="text" name="" id="address" value="" /> <br /><br />
+		<button onclick="update_ok()">update</button>
 	</body>
 <hr color="cornflowerblue"/>
 <script>
+	function update_ok(){
+		id=document.getElementById('id').value;
+		name=document.getElementById('name').value;
+		sex=document.getElementById('sex').value;
+		passwd=document.getElementById('passwd').value;
+		address=document.getElementById('address').value;
+		window.location.href="http://localhost:8000/kkk?"+'id='+id+'&name='+name+'&sex='+sex+'&passwd='+passwd+'&address='+address;	
+	}
 	function show(){
 		document.getElementById('id').value='{{res.0.0}}';
 		document.getElementById('name').value='{{ res.0.1}}';
@@ -25,18 +33,9 @@
 		document.getElementById('sex').value='{{ res.0.3}}';
 		document.getElementById('address').value='{{ res.0.4}}';		
 	}
-	function ok(flag) {
-		if (flag=='show'){
-			show(); }
-		else if(flag=='update'){
-			show(); }
-		else if(flag=='add'){}
-	}
+	show();
 	
-	flag='{{ flag }}';
-	flag=flag.replace(/&#39;/g,'');
-	console.log(flag);
-	ok(flag);
+	
 
 </script>
 

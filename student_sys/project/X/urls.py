@@ -28,6 +28,10 @@ urlpatterns = [
     url(r'student', views.student,name='student'),    
     url(r'score', views.score,name='score'),    
     url(r'delete', views.delete,name='delete'),  
-    url(r'addORupdate', views.addORupdate,name='addORupdate'),  
-      
+    url(r'yyy', views.yyy,name='ok_add'), 
+    url(r'add', views.add,name='add'),  
+    url(r'id_check', views.id_check,name='id_check'), 
+    url(r'update', views.update,name='update'),  
+    url(r'kkk', views.ko_update,name='ko_update'),  
+    
 ]

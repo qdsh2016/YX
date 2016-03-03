@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-03-02 11:29:59
+Date: 2016-03-03 15:26:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -58,8 +58,8 @@ INSERT INTO `student` VALUES ('1', 'yx', '321', '1', 'c');
 INSERT INTO `student` VALUES ('2', 'er', '215', '1', 're');
 INSERT INTO `student` VALUES ('3', 'rt', '253', '1', 'rrt');
 INSERT INTO `student` VALUES ('4', 'rty', '568', '0', 'cssf');
-INSERT INTO `student` VALUES ('5', 'th', '585', '0', 'hyj');
-INSERT INTO `student` VALUES ('6', '56', '65', '56', 'fgg');
+INSERT INTO `student` VALUES ('5', 'name_', 'passwd_', '1', 'address_');
+INSERT INTO `student` VALUES ('6', 'bg', 'dgv', '1', 'fgg');
 
 -- ----------------------------
 -- Procedure structure for delete_
@@ -68,6 +68,26 @@ DROP PROCEDURE IF EXISTS `delete_`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_`(IN id_ INT)
 delete from student where id=id_
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for id_check
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `id_check`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `id_check`()
+SELECT id FROM student
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for insert_
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `insert_`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_`(IN id_ INT,IN name_ VARCHAR(255),IN sex INT,IN passwd VARCHAR(255),IN addr VARCHAR(255))
+INSERT INTO student VALUES(id_,name_,passwd,sex,addr)
 ;;
 DELIMITER ;
 
@@ -128,5 +148,15 @@ DROP PROCEDURE IF EXISTS `student`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `student`(IN id_ INT)
 SELECT * FROM student WHERE id=id_
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for update_
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `update_`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_`(IN id_ INT,IN name_ VARCHAR(255),IN sex_ INT,IN passwd_ VARCHAR(255),IN addr VARCHAR(255))
+UPDATE student SET name = name_,passwd=passwd_,sex=sex_,address=addr WHERE id = id_
 ;;
 DELIMITER ;
