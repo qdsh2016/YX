@@ -8,9 +8,7 @@
 		<hr color="cornflowerblue"/>
 		<a href="http://localhost:8000/search" color="cornflowerblue">Back</a>
 		<hr color="cornflowerblue"/>
-		<label>id</label>&nbsp;&nbsp;&nbsp;
-		<input type="text" name="" id="id" value="" />&nbsp;
-		<button onclick="sid()">生成id</button><br/>
+		<label>id</label>&nbsp;&nbsp;&nbsp;<input type="text" name="" id="id" value=""/>&nbsp;<button onclick="sid()">生成id</button><br/>
 		<label>name</label>&nbsp;&nbsp;<input type="text" name="" id="name" value="" /> <br />
 		<label>sex</label>&nbsp;&#32;&#32;&nbsp;<input type="text" name="" id="sex" value="" /> <br/>
 		<label>passwd</label>&nbsp;<input type="text" name="" id="passwd" value="" /> <br />
@@ -39,7 +37,8 @@ function sid(){
 }
 var id={{id}};
 var id_check='{{id_check}}';
-if(id_check=='ok'){document.getElementById('id').value=id;};
+if(id_check=='ok'){document.getElementById('id').value=id;}
+else if(id_check=='no'){sid();};
 
 
 </script>

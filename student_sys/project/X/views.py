@@ -86,7 +86,7 @@ def id_check(request):
 	res=mysql.mysql('id_check')
 	id_=(id,)
 	if (id_ in res):
-		id_check=0
+		id_check='no'
 	elif (id_ not in res):
 		id_check='ok'
 	return render(request,'add.html',{'id':id,'id_check':id_check})	
