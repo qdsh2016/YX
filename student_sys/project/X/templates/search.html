@@ -63,7 +63,7 @@
 	var str05=">show</button></td><td width='100'><button onclick='add()'>add</button></td><td width='100'><button onclick='update(this)' " ;
 	var str06=">update</button></td><td width='100'><button onclick='delete_(this)' " ;
 	var str07=">delete</button></td><td width='100'><button onclick='score(this)' " ;
-	var str08=">score</button></td></tr><br />";
+	var str08=">score</button></td></tr>";
 	qq='{{res}}';
 	qq=qq.replace(/&#39;/g,"'");
 	qq=qq.replace(/\(/g,"[")
@@ -78,6 +78,7 @@
 		str=str+str00+ (i+1) +str01+ qq[i][0] +str02+ qq[i][1] +str03+str04+str05+str04+str06+str04+str07+str04+str08;
   		i++;
 	}
+	str=str+"<button><<</button><button>>></button>";
 	ok(str);
 	{{ delete_flag}}  //deleteok()
 </script>
