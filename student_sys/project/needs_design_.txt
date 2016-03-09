@@ -19,10 +19,7 @@ id name  sex birth photo  address=省 市 县 + 自己输入的具体街道地�
 
 
 
-查询结果 分页
-
-按条件查询 学生信息
-/模糊查询  按地址查询
+//查询结果 分页 OKK
 
 //id 由系统生成
 
@@ -36,3 +33,5 @@ id name  sex birth photo  address=省 市 县 + 自己输入的具体街道地�
 
 导出 功能
 
+按条件查询 学生信息
+模糊查询  按地址查询
