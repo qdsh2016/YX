@@ -6,8 +6,6 @@
 功能划分/设计 + 【【 DB 表设计 】重点】 + html界面设计
 
 
-
-
 【【 student表 + score 表 】】
 
 省 市 县 3张表 ==>> address
