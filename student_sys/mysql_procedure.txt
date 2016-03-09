@@ -1,0 +1,12 @@
+use  while:
+
+
+CREATE PROCEDURE qwssdf()
+BEGIN
+	DECLARE i INT;
+	SET i=970;
+	WHILE i<=985 DO
+		INSERT INTO student VALUES (id=i,name='ok',passwd='ok',sex=1,address='ok');
+		SET i=i+1;
+	END WHILE;
+END
