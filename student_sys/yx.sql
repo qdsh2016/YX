@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2016-03-09 16:07:42
+Date: 2016-03-09 18:06:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,16 +54,21 @@ CREATE TABLE `student` (
 -- ----------------------------
 -- Records of student
 -- ----------------------------
+INSERT INTO `student` VALUES ('0', '0', '0', '0', '0');
 INSERT INTO `student` VALUES ('1', 'yx', 'sdfg', '1', 'dwfg');
 INSERT INTO `student` VALUES ('2', 'er', '215', '1', 're');
 INSERT INTO `student` VALUES ('3', 'rt', '253', '1', 'rrt');
 INSERT INTO `student` VALUES ('4', 'rty', '568', '0', 'cssf');
 INSERT INTO `student` VALUES ('5', 'name_', 'passwd_', '1', 'address_');
 INSERT INTO `student` VALUES ('6', 'bg', 'dgv', '1', 'sdfg');
+INSERT INTO `student` VALUES ('7', 'e2', 'f', '1', 'fe');
+INSERT INTO `student` VALUES ('9', '12', '1', '1', '1');
 INSERT INTO `student` VALUES ('14', '13f', 'fgh', '1', 'hg');
+INSERT INTO `student` VALUES ('17', 'fv', 'fbv', '1', 'b');
 INSERT INTO `student` VALUES ('19', 'gh', 'nh', '1', 'hg');
 INSERT INTO `student` VALUES ('22', '123', 'ghg', '1', 'h');
 INSERT INTO `student` VALUES ('36', 'hhj', 'fgh', '1', 'd');
+INSERT INTO `student` VALUES ('47', 'v', 'vg', '1', 'g');
 INSERT INTO `student` VALUES ('68', 'egr', 'gnj', '1', 'jg');
 INSERT INTO `student` VALUES ('79', '21f', 'vb', '1', ' bf');
 INSERT INTO `student` VALUES ('82', 'f', 'vgb', '1', 'b');
@@ -71,11 +76,15 @@ INSERT INTO `student` VALUES ('90', 'vf', 'vfbb', '1', 'f');
 INSERT INTO `student` VALUES ('194', 'dfg', 'fgr', '1', 'g');
 INSERT INTO `student` VALUES ('228', 'f', 'vgg', '1', 'd');
 INSERT INTO `student` VALUES ('251', 'vf', 'fbh', '1', 'h');
+INSERT INTO `student` VALUES ('266', 'r', 'vg', '1', 'g');
+INSERT INTO `student` VALUES ('438', 'df', 'bgnj', '1', 'jn');
 INSERT INTO `student` VALUES ('467', '12', 'fhj', '1', 'jhj');
 INSERT INTO `student` VALUES ('481', 'tu', 'j', '1', 'h');
 INSERT INTO `student` VALUES ('536', 'ffgh', 'ghj', '1', 'bgh');
-INSERT INTO `student` VALUES ('603', 'gh', 'hjg', '1', 'ngjn');
-INSERT INTO `student` VALUES ('737', 'fgr', 'fg', '0', 'h');
+INSERT INTO `student` VALUES ('584', 'r', 'fb', '1', 'gr');
+INSERT INTO `student` VALUES ('671', 'fe', 'dv', '1', 'fg');
+INSERT INTO `student` VALUES ('887', 'fe', 'fb', '1', 'fg');
+INSERT INTO `student` VALUES ('970', 'fe', 'fe', '1', 'f');
 
 -- ----------------------------
 -- Procedure structure for delete_
@@ -118,6 +127,23 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(IN id_ int,IN passwd_ VARCHAR(255))
 select id FROM student where id=id_ and passwd=passwd_
 ;
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for qwssdf
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qwssdf`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qwssdf`()
+BEGIN
+	DECLARE ii INT;
+	SET ii=100;
+	WHILE ii<=120 DO
+		INSERT INTO student VALUES (id=ii,name='ok',passwd='ok',sex=0,address='ok');
+		SET ii=ii+1;
+	END WHILE;
+END
 ;;
 DELIMITER ;
 
