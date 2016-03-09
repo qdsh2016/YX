@@ -31,10 +31,41 @@
 	 </table>
 <hr color="cornflowerblue"/>
 	</body>
-
-
 <script >	
 	function ok(str){
+		document.getElementById("oop").innerHTML=str;
+	};
+	// can't leave this page, for use of total + qq,they are stored in JS..
+	function next_page(th){ 
+		//console.log(qq);
+		var str00="<tr><td width='100'>"; //No
+		var str01="</td><td width='100'>"; //id
+		var str02="</td><td width='100'>"; //name
+		var str03="</td><td width='100'><button onclick='show(this)' "; 
+		var str05=">show</button></td><td width='100'><button onclick='add()'>add</button></td><td width='100'><button onclick='update(this)' " ;
+		var str06=">update</button></td><td width='100'><button onclick='delete_(this)' " ;
+		var str07=">delete</button></td><td width='100'><button onclick='score(this)' " ;
+		var str08=">score</button></td></tr>";
+		i=10*(th.id-1);
+		str='';
+		while(i<(10*(th.id-1)+10)){
+			try{
+				var str04="id='" +qq[i][0]+ "'";		
+				str=str+str00+ (i+1) +str01+ qq[i][0] +str02+ qq[i][1] +str03+str04+str05+str04+str06+str04+str07+str04+str08;
+  				i++;
+  			}
+  			catch(err){
+  				console.log((i+1)+'  not exists..==>>error happen');
+  				break;
+  			}
+		}
+		astr='';	
+		x=1;
+		while (x<=page){
+			astr=astr+"<button id='"+x+"' onclick='next_page(this)'>"+x+"</button>";
+			x=x+1;
+		}
+		str=str+astr;
 		document.getElementById("oop").innerHTML=str;
 	};
 	function show(qw){
@@ -55,7 +86,8 @@
 	function deleteok(){
 		alert(' delete ok.. ');
 	}
-	var total={{total}};  // " "
+	var total={{total}};  
+	window.page=Math.ceil(total/10);
 	var str00="<tr><td width='100'>"; //No
 	var str01="</td><td width='100'>"; //id
 	var str02="</td><td width='100'>"; //name
@@ -68,18 +100,30 @@
 	qq=qq.replace(/&#39;/g,"'");
 	qq=qq.replace(/\(/g,"[")
 	qq=qq.replace(/\)/g,"]")
-	
-	qq=eval(qq) 
+	window.qq=eval(qq) 
 	console.log(qq);
 	var i=0;
 	str="";
-	while(i<total){
-		var str04="id='" +qq[i][0]+ "'";		
-		str=str+str00+ (i+1) +str01+ qq[i][0] +str02+ qq[i][1] +str03+str04+str05+str04+str06+str04+str07+str04+str08;
-  		i++;
+	while(i<10){
+		try{
+			var str04="id='" +qq[i][0]+ "'";		
+			str=str+str00+ (i+1) +str01+ qq[i][0] +str02+ qq[i][1] +str03+str04+str05+str04+str06+str04+str07+str04+str08;
+  			i++;
+  		}
+  		catch(err){
+  			console.log(i+' not exists..==>>error happen');
+  			break;
+  		}
 	}
-	str=str+"<button><<</button><button>>></button>";
+	astr='';	
+	x=1;
+	while (x<=page){
+		astr=astr+"<button id='"+x+"' onclick='next_page(this)'>"+x+"</button>";
+		x=x+1;
+	}
+	str=str+astr;
 	ok(str);
 	{{ delete_flag}}  //deleteok()
+
 </script>
 </html>
