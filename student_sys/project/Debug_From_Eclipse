@@ -1,0 +1,18 @@
+
+
+'''
+to debug from eclipse, just use 'runserver' HERE:
+'''
+
+from django.core.management import execute_from_command_line
+import os
+
+# Debug Start Here:====>>>>
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "a.settings")
+execute_from_command_line(['E:\eclipse\eclipse\work\2\manage.py', 'runserver'])
+
+
+'''
+['E:\eclipse\eclipse\work\2\manage.py', 'runserver'] ==>> change this by your file
+'''
