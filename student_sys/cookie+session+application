@@ -1,0 +1,44 @@
+package a;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+													
+@WebServlet("/A")
+public class A extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    public A() {super();}
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//		Cookie[] cookie=request.getCookies();       
+//		Cookie cookie2=new Cookie("name", "YYXX");    //test cookie + session..
+//		response.addCookie(cookie2);
+//		HttpSession session=request.getSession();     //request.getServletContext()=Application，
+//		System.out.println(session);                  //Application是所有请求共享的全局 对象,存值通用，   
+//		System.out.println(cookie);                   //session根据不同cookie而创建 ,一对一
+//		if (session.getAttribute("num")==null) {      //cookie存于浏览器，request自动携带，
+//			session.setAttribute("num", 1);
+//		}else {
+//			int i=(int)session.getAttribute("num");
+//			session.setAttribute("num", i+1);
+//		}
+//		
+//		System.out.println(session.getCreationTime());
+//		System.out.println(session.getAttribute("num"));
+		if (request.getServletContext().getAttribute("num")==null) {
+			request.getServletContext().setAttribute("num",1);
+		}else {
+			int i=(int)request.getServletContext().getAttribute("num");
+			request.getServletContext().setAttribute("num",i+1);
+		}
+		System.out.println(request.getServletContext());
+		System.out.println(request.getServletContext().getAttribute("num"));
+		request.getRequestDispatcher("A.jsp").forward(request, response);
+	
+	}
+
+}
