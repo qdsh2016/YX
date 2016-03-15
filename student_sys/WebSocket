@@ -19,10 +19,10 @@ public class socket {
 		System.out.println("open");
 	 }
 	 
-	 @OnMessage
-	 public String onMessage(String message) {
+	 @OnMessage 				  // session.getBasicRemote().sendText(message); 从server发送数据,用session对象
+	 public void onMessage(String message) {              
+		 session.getBasicRemote().sendText("it is message from Server..");
 		 System.out.println(message);
-		 return message;
 	 }
 
 	 @OnError
