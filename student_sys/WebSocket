@@ -1,0 +1,44 @@
+WebSocket Server :use Tomcat8 ,java :
+--------------------------------------------------->>
+package Socket;
+import java.io.IOException;
+import javax.websocket.CloseReason;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+import javax.websocket.server.ServerEndpoint;
+import com.sun.xml.internal.ws.dump.MessageDumping;
+
+@ServerEndpoint("/test")
+public class socket {
+
+	@OnOpen
+	 public void onOpen(Session session) throws IOException {
+		System.out.println("open");
+	 }
+	 
+	 @OnMessage
+	 public String onMessage(String message) {
+		 System.out.println(message);
+		 return message;
+	 }
+
+	 @OnError
+	 public void onError(Throwable t) {
+		 System.out.println("Error");
+	 }
+	 
+	 @OnClose
+	 public void onClose(Session session, CloseReason reason) {
+		 System.out.println("close");
+	 } 
+}
+
+WebSocket Client :use Chrome ,js :
+--------------------------------------------------->>
+var s=new WebSocket("ws://localhost:8080/xx/test");
+s.send("it is a test..");
+s.send("it is another test..");
+s.close();
