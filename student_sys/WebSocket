@@ -38,7 +38,10 @@ public class socket {
 
 WebSocket Client :use Chrome ,js :
 --------------------------------------------------->>
-var s=new WebSocket("ws://localhost:8080/xx/test");  //这句不报错,则socket握手已成功建立,然后会回调 onOpen()函数,
+websocket.onopen = function(event){       //连接成功建立的回调方法
+  console.log("socket open..");
+}
+var s=new WebSocket("ws://localhost:8080/xx/test");  //这句不报错,则socket握手已成功建立,然后会回调onOpen()函数,
 s.send("it is a test..");
 s.send("it is another test..");
 s.close();
