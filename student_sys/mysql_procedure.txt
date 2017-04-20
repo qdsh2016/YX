@@ -10,3 +10,17 @@ BEGIN
 		SET i=i+1;
 	END WHILE;
 END
+
+
+# insert records:
+CREATE PROCEDURE bb()
+BEGIN
+	DECLARE i INT;
+	SET i=0;
+	WHILE i<=1690003 DO
+		INSERT INTO A VALUES ('id=i','ok','ok','sex','ok/aaa/');
+		SET i=i+1;
+	END WHILE;
+END
+
+call bb()
